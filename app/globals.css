@@ -1,26 +1,121 @@
 @import "tailwindcss";
 
+/* ============================================================
+   DESIGN SYSTEM — Muhammad Akmal Firmansyah Portfolio
+   ============================================================ */
+
+/* ---------- Dark Theme (default) ---------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background:       #002029;
+  --surface:          #00303D;
+  --border:           #004052;
+  --border-subtle:    #003040;
+  --text-primary:     #E8F4F6;
+  --text-secondary:   #7DB9C5;
+  --text-muted:       #4A8A99;
+  --accent:           #00A3AD;
+  --accent-hover:     #00BCC8;
+  --accent-subtle:    rgba(0, 163, 173, 0.12);
+  --surface-hover:    #003A4A;
+  --shadow:           rgba(0, 0, 0, 0.4);
+  --shadow-accent:    rgba(0, 163, 173, 0.2);
+  --glass:            rgba(0, 48, 61, 0.7);
+  --glass-border:     rgba(0, 163, 173, 0.15);
 }
 
+/* ---------- Light Theme ---------- */
+.light {
+  --background:       #F4F9F9;
+  --surface:          #E5F2F2;
+  --border:           #CCE5E5;
+  --border-subtle:    #D8EEEE;
+  --text-primary:     #002029;
+  --text-secondary:   #005066;
+  --text-muted:       #007A8F;
+  --accent:           #00A3AD;
+  --accent-hover:     #008A93;
+  --accent-subtle:    rgba(0, 163, 173, 0.1);
+  --surface-hover:    #D8ECEC;
+  --shadow:           rgba(0, 32, 41, 0.12);
+  --shadow-accent:    rgba(0, 163, 173, 0.15);
+  --glass:            rgba(228, 242, 242, 0.8);
+  --glass-border:     rgba(0, 163, 173, 0.2);
+}
+
+/* ---------- Tailwind v4 Theme Tokens ---------- */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background:    var(--background);
+  --color-surface:       var(--surface);
+  --color-border:        var(--border);
+  --color-text-primary:  var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted:    var(--text-muted);
+  --color-accent:        var(--accent);
+  --color-accent-hover:  var(--accent-hover);
+
+  --font-heading:        var(--font-plus-jakarta-sans);
+  --font-body:           var(--font-geist-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ---------- Custom Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* ---------- Selection ---------- */
+::selection {
+  background: var(--accent-subtle);
+  color: var(--accent);
+}
+
+/* ---------- Focus visible ---------- */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------- Heading font override ---------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-plus-jakarta-sans), system-ui, sans-serif;
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+/* ---------- Transition all theme-aware colors ---------- */
+a, button, input, textarea {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
