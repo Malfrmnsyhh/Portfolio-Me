@@ -4,18 +4,22 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sun, Moon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-export function ThemeToggle() {
+export function ThemeToggle({ className }: { className?: string }) {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    const raf = requestAnimationFrame(() => {
+      setMounted(true);
+    });
+    return () => cancelAnimationFrame(raf);
   }, []);
 
   if (!mounted) {
     return (
-      <div className="h-9 w-9 rounded-xl border border-[var(--border)] bg-[var(--surface)]" />
+      <div className={cn("h-9 w-9 rounded-full border border-[var(--border)] bg-[var(--surface)]", className)} />
     );
   }
 
@@ -26,7 +30,10 @@ export function ThemeToggle() {
       id="theme-toggle"
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="relative flex h-9 w-9 items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--surface)] text-[var(--text-secondary)] hover:border-[var(--accent)] hover:text-[var(--accent)] hover:bg-[var(--accent-subtle)] cursor-pointer transition-colors duration-200"
+      className={cn(
+        "relative flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--text-secondary)] hover:border-[var(--accent)] hover:text-[var(--accent)] hover:bg-[var(--accent-subtle)] cursor-pointer transition-colors duration-200",
+        className
+      )}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >
