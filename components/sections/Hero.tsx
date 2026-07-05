@@ -6,12 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { DotGrid } from "@/components/ui/DotGrid";
 import ProfileCard from "@/components/ui/ProfileCard";
-
-const roles = [
-  "Informatics Student",
-  "Full Stack Developer",
-  "ML & AI Enthusiast",
-];
+import TextType from "@/components/ui/TextType";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -81,41 +76,32 @@ export function Hero() {
               {...fadeUp}
               transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             >
-              <h1 className="font-heading text-5xl sm:text-6xl font-extrabold leading-[1.1] tracking-tight text-[var(--text-primary)] cursor-default">
-                Muhammad{" "}
+              <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-extrabold leading-[1.15] tracking-tight cursor-default min-h-[130px] sm:min-h-[150px] flex items-center">
                 <span
+                  className="pb-1 pr-1"
                   style={{
                     background:
-                      "linear-gradient(135deg, var(--accent), var(--accent-hover))",
+                      "linear-gradient(135deg, var(--text-primary) 35%, var(--accent) 100%)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
                   }}
                 >
-                  Akmal
-                </span>{" "}
-                Firmansyah
+                  <TextType
+                    texts={[
+                      "Muhammad Akmal Firmansyah",
+                      "Informatics Student",
+                      "Full Stack Developer",
+                      "ML & AI Enthusiast",
+                    ]}
+                    typingSpeed={100}
+                    deletingSpeed={60}
+                    pauseDuration={2000}
+                    showCursor={true}
+                    cursorCharacter="|"
+                  />
+                </span>
               </h1>
-            </motion.div>
-
-            {/* Roles */}
-            <motion.div
-              className="flex flex-col gap-1"
-              {...fadeUp}
-              transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-            >
-              {roles.map((role, i) => (
-                <motion.p
-                  key={role}
-                  className="text-base font-medium text-[var(--text-secondary)] flex items-center gap-2 cursor-default"
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3 + i * 0.1, duration: 0.4 }}
-                >
-                  <span className="h-px w-6 bg-[var(--accent)] inline-block" />
-                  {role}
-                </motion.p>
-              ))}
             </motion.div>
 
             {/* Description */}
@@ -175,10 +161,10 @@ export function Hero() {
           >
             <div className="relative flex items-center justify-end w-[360px] h-[500px]">
               <ProfileCard
-                name="Muhammad Akmal"
-                title="Full Stack Web Developer & AI Enthusiast"
-                handle="Malfrmnsyhh"
-                status="Open To Work"
+                name=""
+                title=""
+                handle="Muhammad Akmal"
+                status="Open To Internship & Freelance"
                 avatarUrl="/photo.jpeg"
                 iconUrl="/code-pattern.svg"
                 behindGlowEnabled={true}
