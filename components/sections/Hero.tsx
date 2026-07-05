@@ -1,9 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
+import { Squares } from "@/components/ui/Squares";
 
 const roles = [
   "Computer Science Student",
@@ -17,13 +18,19 @@ const fadeUp = {
 };
 
 export function Hero() {
+  const { scrollY } = useScroll();
+  const backgroundOpacity = useTransform(scrollY, [0, 500], [1, 0]);
+
   return (
     <section
       id="hero"
       className="relative min-h-screen flex items-center overflow-hidden"
     >
       {/* Background decorations */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+      <motion.div 
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+        style={{ opacity: backgroundOpacity }}
+      >
         {/* Large radial glow */}
         <div
           className="absolute -top-40 -right-40 h-[600px] w-[600px] rounded-full opacity-[0.06]"
@@ -40,15 +47,14 @@ export function Hero() {
           }}
         />
 
-        {/* Grid lines */}
-        <div
-          className="absolute inset-0 opacity-[0.025]"
-          style={{
-            backgroundImage: `linear-gradient(var(--accent) 1px, transparent 1px), linear-gradient(90deg, var(--accent) 1px, transparent 1px)`,
-            backgroundSize: "80px 80px",
-          }}
+        {/* Animated Squares Background */}
+        <Squares 
+          speed={0.2} 
+          squareSize={40} 
+          borderColor="var(--border-subtle)" 
+          hoverIntensity={0.15} 
         />
-      </div>
+      </motion.div>
 
       <div className="relative mx-auto max-w-[1200px] w-full px-6 md:px-8 pt-28 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
