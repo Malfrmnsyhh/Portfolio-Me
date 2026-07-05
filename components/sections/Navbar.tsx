@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Home, User, Code2, Cpu, Mail } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
-import { NavLink } from "@/components/ui/NavLink";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { cn } from "@/lib/utils";
+import PillNav from "@/components/PillNav";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -71,23 +71,19 @@ export function Navbar() {
           <span className="text-[var(--accent)]">P</span>ortfolio
         </motion.a>
 
-        {/* Desktop Nav Links */}
+        {/* Desktop Nav Links with React Bits PillNav */}
         <nav className="hidden lg:block">
-          <ul className="flex items-center gap-1">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <NavLink
-                  href={link.href}
-                  label={link.label}
-                  isActive={activeSection === link.href.replace("#", "")}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(link.href);
-                  }}
-                />
-              </li>
-            ))}
-          </ul>
+          <PillNav
+            items={navLinks}
+            activeHref={`#${activeSection}`}
+            hideLogo={true}
+            hideMobile={true}
+            baseColor="var(--accent)"
+            pillColor="transparent"
+            pillTextColor="var(--text-secondary)"
+            hoveredPillTextColor="#ffffff"
+            initialLoadAnimation={false}
+          />
         </nav>
 
         {/* Right side: Theme Toggle */}
