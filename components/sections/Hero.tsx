@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { Squares } from "@/components/ui/Squares";
+import { DotGrid } from "@/components/ui/DotGrid";
 
 const roles = [
   "Computer Science Student",
@@ -47,12 +47,13 @@ export function Hero() {
           }}
         />
 
-        {/* Animated Squares Background */}
-        <Squares 
-          speed={0.2} 
-          squareSize={40} 
-          borderColor="var(--border-subtle)" 
-          hoverIntensity={0.15} 
+        {/* Interactive Dot Grid Background */}
+        <DotGrid
+          dotSize={6}
+          gap={24}
+          proximity={120}
+          shockRadius={180}
+          shockStrength={15}
         />
       </motion.div>
 
