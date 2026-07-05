@@ -5,6 +5,7 @@ import { ArrowRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { DotGrid } from "@/components/ui/DotGrid";
+import ProfileCard from "@/components/ui/ProfileCard";
 
 const roles = [
   "Computer Science Student",
@@ -163,65 +164,46 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right: Abstract Visual */}
+          {/* Right: Profile Card Visual */}
           <motion.div
             className="hidden lg:flex items-center justify-center"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
           >
-            <div className="relative w-[420px] h-[420px]">
-              {/* Outer ring */}
+            <div className="relative flex items-center justify-center w-[450px] h-[550px]">
+              {/* Outer rotating ring behind card for depth */}
               <motion.div
-                className="absolute inset-0 rounded-full border border-[var(--border)]"
+                className="absolute w-[440px] h-[440px] rounded-full border border-[var(--border-subtle)] opacity-40 pointer-events-none"
                 animate={{ rotate: 360 }}
-                transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-              />
-              {/* Middle ring */}
-              <motion.div
-                className="absolute inset-8 rounded-full border border-[var(--dark-teal-2)]"
-                style={{ borderColor: "var(--border)" }}
-                animate={{ rotate: -360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
               />
 
-              {/* Center card */}
-              <div className="absolute inset-16 rounded-2xl border border-[var(--glass-border)] bg-[var(--glass)] backdrop-blur-sm flex flex-col items-center justify-center gap-4 p-6">
-                <div
-                  className="h-14 w-14 rounded-2xl flex items-center justify-center text-2xl font-extrabold font-heading"
-                  style={{
-                    background: "linear-gradient(135deg, var(--accent), var(--accent-hover))",
-                    color: "white",
-                  }}
-                >
-                  M
-                </div>
-                <div className="text-center">
-                  <p className="text-sm font-semibold text-[var(--text-primary)]">
-                    Full Stack Dev
-                  </p>
-                  <p className="text-xs text-[var(--text-muted)] mt-0.5">
-                    &amp; ML Enthusiast
-                  </p>
-                </div>
-                <div className="flex gap-1.5">
-                  {["#00A3AD", "#004052", "#00303D"].map((c) => (
-                    <div
-                      key={c}
-                      className="h-2 w-2 rounded-full"
-                      style={{ background: c }}
-                    />
-                  ))}
-                </div>
-              </div>
+              {/* The ProfileCard */}
+              <ProfileCard
+                name="Muhammad Akmal Firmansyah"
+                title="Full Stack Web Developer"
+                handle="malfrmnsyah"
+                status="Available"
+                avatarUrl="/photo.jpeg"
+                iconUrl="/code-pattern.svg"
+                behindGlowEnabled={true}
+                behindGlowColor="rgba(0, 163, 173, 0.45)"
+                behindGlowSize="50%"
+                enableTilt={true}
+                innerGradient="linear-gradient(145deg, rgba(0, 163, 173, 0.1) 0%, rgba(0, 32, 41, 0.65) 100%)"
+                onContactClick={() => {
+                  document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+                }}
+              />
 
-              {/* Floating skill pills */}
+              {/* Floating skill pills around the card */}
               {[
-                { label: "React", angle: 0, r: 190 },
-                { label: "Next.js", angle: 72, r: 190 },
-                { label: "Python", angle: 144, r: 190 },
-                { label: "TypeScript", angle: 216, r: 190 },
-                { label: "Docker", angle: 288, r: 190 },
+                { label: "React", angle: 0, r: 235 },
+                { label: "Next.js", angle: 72, r: 235 },
+                { label: "Python", angle: 144, r: 235 },
+                { label: "TypeScript", angle: 216, r: 235 },
+                { label: "Docker", angle: 288, r: 235 },
               ].map(({ label, angle, r }) => {
                 const rad = (angle * Math.PI) / 180;
                 const x = Math.round(r * Math.cos(rad));
@@ -229,7 +211,7 @@ export function Hero() {
                 return (
                   <motion.div
                     key={label}
-                    className="absolute text-xs font-semibold px-3 py-1.5 rounded-full border border-[var(--glass-border)] bg-[var(--glass)] text-[var(--text-secondary)] backdrop-blur-sm whitespace-nowrap"
+                    className="absolute text-xs font-semibold px-3 py-1.5 rounded-full border border-[var(--glass-border)] bg-[var(--glass)] text-[var(--text-secondary)] backdrop-blur-sm whitespace-nowrap pointer-events-none"
                     style={{
                       left: "50%",
                       top: "50%",

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <!-- Grid pattern of code tags -->
+  <style>
+    .code-tag {
+      font-family: monospace, system-ui, sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      fill: #ffffff;
+      opacity: 0.15;
+    }
+  </style>
+  <text x="15" y="30" class="code-tag">&lt;/&gt;</text>
+  <text x="75" y="30" class="code-tag">&lt;/&gt;</text>
+  <text x="45" y="70" class="code-tag">&lt;/&gt;</text>
+  <text x="15" y="110" class="code-tag">&lt;/&gt;</text>
+  <text x="75" y="110" class="code-tag">&lt;/&gt;</text>
+</svg>
