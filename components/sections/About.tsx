@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+import SplitText from "@/components/ui/SplitText";
 
 const stats = [
   { label: "Projects Built", value: 12, suffix: "+" },
@@ -63,16 +64,24 @@ export function About() {
               </span>
             </motion.div>
 
-            <motion.h2
-              className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] leading-tight"
-              {...fadeUp}
-              transition={{ duration: 0.5, delay: 0.05 }}
-            >
-              Turning ideas into{" "}
-              <span className="text-[var(--accent)]">
-                meaningful experiences
-              </span>
-            </motion.h2>
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold leading-tight flex flex-wrap justify-center gap-x-2 gap-y-1">
+              <SplitText
+                text="Turning ideas into"
+                className="text-[var(--text-primary)]"
+                delay={25}
+                duration={1}
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
+              />
+              <SplitText
+                text="meaningful experiences"
+                className="text-[var(--accent)]"
+                delay={25}
+                duration={1}
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
+              />
+            </h2>
           </div>
 
           <motion.div
