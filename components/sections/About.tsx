@@ -2,34 +2,10 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { Lightbulb, BookOpen, Cpu, Globe } from "lucide-react";
-
-const highlights = [
-  {
-    icon: Lightbulb,
-    title: "Passion for Technology",
-    desc: "Driven by curiosity and a love for problem-solving through code.",
-  },
-  {
-    icon: BookOpen,
-    title: "Continuous Learning",
-    desc: "Staying up-to-date with the latest trends in web and AI development.",
-  },
-  {
-    icon: Cpu,
-    title: "Problem Solving",
-    desc: "Breaking down complex challenges into elegant, maintainable solutions.",
-  },
-  {
-    icon: Globe,
-    title: "Impactful Software",
-    desc: "Building tools that make a real difference in people's daily lives.",
-  },
-];
 
 const stats = [
-  { label: "Projects Completed", value: 20, suffix: "+" },
-  { label: "Technologies Learned", value: 30, suffix: "+" },
+  { label: "Projects Built", value: 12, suffix: "+" },
+  { label: "Tech Stacks Learned", value: 6, suffix: "+" },
   { label: "Years of Learning", value: 3, suffix: "+" },
 ];
 
@@ -74,20 +50,21 @@ export function About() {
   return (
     <section id="about" className="py-24 lg:py-32">
       <div className="mx-auto max-w-[1200px] px-6 md:px-8">
-        {/* Section label */}
-        <motion.p
-          className="text-sm font-semibold tracking-widest text-[var(--accent)] uppercase mb-3"
-          {...fadeUp}
-          transition={{ duration: 0.4 }}
-        >
-          About Me
-        </motion.p>
+        <div className="max-w-3xl mx-auto flex flex-col items-center text-center gap-10">
+          <div className="flex flex-col items-center gap-4">
+            {/* Section label */}
+            <motion.div
+              className="inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-1.5"
+              {...fadeUp}
+              transition={{ duration: 0.4 }}
+            >
+              <span className="text-sm font-semibold tracking-widest text-[var(--accent)] uppercase">
+                About Me
+              </span>
+            </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          {/* Left: Profile text */}
-          <div className="flex flex-col gap-8">
             <motion.h2
-              className="font-heading text-3xl lg:text-4xl font-bold text-[var(--text-primary)] leading-tight"
+              className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] leading-tight"
               {...fadeUp}
               transition={{ duration: 0.5, delay: 0.05 }}
             >
@@ -96,73 +73,58 @@ export function About() {
                 meaningful experiences
               </span>
             </motion.h2>
-
-            <motion.div
-              className="flex flex-col gap-4 text-[var(--text-secondary)] leading-relaxed"
-              {...fadeUp}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <p>
-                I&apos;m a Computer Science student with a deep passion for
-                building scalable web applications. I specialize in the full
-                stack — from crafting intuitive React interfaces to designing
-                robust Node.js backends.
-              </p>
-              <p>
-                Beyond web development, I actively explore the intersection of
-                AI and software engineering, working with TensorFlow and
-                scikit-learn to build intelligent systems that solve real-world
-                problems.
-              </p>
-              <p>
-                I believe great software is born from a combination of technical
-                rigor, clean design thinking, and empathy for the end user.
-              </p>
-            </motion.div>
-
-            {/* Stats */}
-            <motion.div
-              className="grid grid-cols-3 gap-4"
-              {...fadeUp}
-              transition={{ duration: 0.5, delay: 0.15 }}
-            >
-              {stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 text-center"
-                >
-                  <p className="font-heading text-2xl font-extrabold text-[var(--accent)]">
-                    <CountUp target={stat.value} suffix={stat.suffix} />
-                  </p>
-                  <p className="text-xs text-[var(--text-muted)] mt-1 leading-snug">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </motion.div>
           </div>
 
-          {/* Right: Highlight points */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {highlights.map((item, i) => (
-              <motion.div
-                key={item.title}
-                className="group rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 hover:border-[var(--accent)] hover:bg-[var(--accent-subtle)] transition-all duration-200"
-                {...fadeUp}
-                transition={{ duration: 0.4, delay: 0.1 + i * 0.08 }}
+          <motion.div
+            className="flex flex-col gap-6 text-base md:text-lg text-[var(--text-secondary)] leading-relaxed text-left"
+            {...fadeUp}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <p>
+              I&apos;m a Computer Science student who learns best by building —
+              most of what I know in web development came from shipping real
+              projects rather than just following a curriculum. I work across
+              the full stack, from{" "}
+              <strong className="text-[var(--text-primary)] font-semibold">
+                React/Next.js
+              </strong>{" "}
+              interfaces to{" "}
+              <strong className="text-[var(--text-primary)] font-semibold">
+                Laravel
+              </strong>{" "}
+              and PHP-based backends, and I've also explored machine learning by
+              building a backpropagation neural network with scikit-learn to
+              predict rice price fluctuations in East Java.
+            </p>
+            <p>
+              What pulled me into software in the first place was practical, not
+              theoretical: helping digitalize my family's traditional herbal
+              medicine (jamu) business. That experience still shapes how I build
+              — I care less about using the &quot;trendiest&quot; tech, and more
+              about whether the software actually solves someone's real problem.
+            </p>
+          </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            className="grid grid-cols-3 gap-4 md:gap-8 w-full pt-8 border-t border-[var(--border)]/50"
+            {...fadeUp}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          >
+            {stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="flex flex-col items-center justify-center p-4"
               >
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent-subtle)] text-[var(--accent)] group-hover:bg-[var(--accent)] group-hover:text-white transition-all duration-200">
-                  <item.icon size={18} />
-                </div>
-                <h3 className="font-heading text-sm font-semibold text-[var(--text-primary)] mb-1">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                  {item.desc}
+                <p className="font-heading text-3xl md:text-4xl font-extrabold text-[var(--accent)]">
+                  <CountUp target={stat.value} suffix={stat.suffix} />
                 </p>
-              </motion.div>
+                <p className="text-sm md:text-base text-[var(--text-muted)] mt-2 font-medium">
+                  {stat.label}
+                </p>
+              </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
