@@ -254,13 +254,13 @@
 
 .pc-avatar-content .avatar {
   width: 90%;
-  height: 75%;
+  height: 85%;
   object-fit: cover;
   border-radius: 16px;
   border: 1px solid var(--border);
   position: absolute;
   left: 50%;
-  top: 15%;
+  top: 5%;
   transform-origin: 50% 50%;
   transform: translateX(calc(-50% + (var(--pointer-from-left) - 0.5) * 8px)) translateY(calc((var(--pointer-from-top) - 0.5) * 8px)) translateZ(0);
   backface-visibility: hidden;

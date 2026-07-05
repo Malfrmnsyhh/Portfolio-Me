@@ -8,9 +8,9 @@ import { DotGrid } from "@/components/ui/DotGrid";
 import ProfileCard from "@/components/ui/ProfileCard";
 
 const roles = [
-  "Computer Science Student",
-  "Full Stack Web Developer",
-  "Machine Learning Enthusiast",
+  "Informatics Student",
+  "Full Stack Developer",
+  "ML & AI Enthusiast",
 ];
 
 const fadeUp = {
@@ -28,7 +28,7 @@ export function Hero() {
       className="relative min-h-screen flex items-center overflow-hidden"
     >
       {/* Background decorations */}
-      <motion.div 
+      <motion.div
         className="pointer-events-none absolute inset-0 overflow-hidden"
         style={{ opacity: backgroundOpacity }}
       >
@@ -50,8 +50,8 @@ export function Hero() {
 
         {/* Interactive Dot Grid Background */}
         <DotGrid
-          dotSize={6}
-          gap={24}
+          dotSize={4}
+          gap={15}
           proximity={120}
           shockRadius={180}
           shockStrength={15}
@@ -72,7 +72,7 @@ export function Hero() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent)] opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent)]" />
                 </span>
-                Available for Freelance
+                Available for Intership / Freelance
               </Badge>
             </motion.div>
 
@@ -81,11 +81,12 @@ export function Hero() {
               {...fadeUp}
               transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             >
-              <h1 className="font-heading text-5xl sm:text-6xl font-extrabold leading-[1.1] tracking-tight text-[var(--text-primary)]">
+              <h1 className="font-heading text-5xl sm:text-6xl font-extrabold leading-[1.1] tracking-tight text-[var(--text-primary)] cursor-default">
                 Muhammad{" "}
                 <span
                   style={{
-                    background: "linear-gradient(135deg, var(--accent), var(--accent-hover))",
+                    background:
+                      "linear-gradient(135deg, var(--accent), var(--accent-hover))",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
@@ -106,7 +107,7 @@ export function Hero() {
               {roles.map((role, i) => (
                 <motion.p
                   key={role}
-                  className="text-base font-medium text-[var(--text-secondary)] flex items-center gap-2"
+                  className="text-base font-medium text-[var(--text-secondary)] flex items-center gap-2 cursor-default"
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3 + i * 0.1, duration: 0.4 }}
@@ -119,12 +120,14 @@ export function Hero() {
 
             {/* Description */}
             <motion.p
-              className="text-base leading-relaxed text-[var(--text-secondary)] max-w-md"
+              className="text-base leading-relaxed text-[var(--text-secondary)] max-w-md cursor-default"
               {...fadeUp}
               transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
             >
-              I build modern web applications and continuously explore AI,
-              backend development, and scalable software engineering.
+              I design and build modern web applications with clean UI, scalable
+              backend architecture, and practical AI integration. Focused on
+              creating products that solve real problems, not just completing
+              projects.
             </motion.p>
 
             {/* CTAs */}
@@ -145,7 +148,6 @@ export function Hero() {
                 }}
               >
                 View Projects
-                <ArrowRight size={16} />
               </Button>
               <Button
                 variant="ghost"
@@ -166,69 +168,30 @@ export function Hero() {
 
           {/* Right: Profile Card Visual */}
           <motion.div
-            className="hidden lg:flex items-center justify-center"
+            className="hidden lg:flex items-center justify-end"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
           >
-            <div className="relative flex items-center justify-center w-[450px] h-[550px]">
-              {/* Outer rotating ring behind card for depth */}
-              <motion.div
-                className="absolute w-[440px] h-[440px] rounded-full border border-[var(--border-subtle)] opacity-40 pointer-events-none"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-              />
-
-              {/* The ProfileCard */}
+            <div className="relative flex items-center justify-end w-[360px] h-[500px]">
               <ProfileCard
-                name="Muhammad Akmal Firmansyah"
-                title="Full Stack Web Developer"
-                handle="malfrmnsyah"
-                status="Available"
+                name="Muhammad Akmal"
+                title="Full Stack Web Developer & AI Enthusiast"
+                handle="Malfrmnsyhh"
+                status="Open To Work"
                 avatarUrl="/photo.jpeg"
                 iconUrl="/code-pattern.svg"
                 behindGlowEnabled={true}
                 behindGlowColor="rgba(0, 163, 173, 0.45)"
-                behindGlowSize="50%"
+                behindGlowSize="70%"
                 enableTilt={true}
                 innerGradient="linear-gradient(145deg, rgba(0, 163, 173, 0.1) 0%, rgba(0, 32, 41, 0.65) 100%)"
                 onContactClick={() => {
-                  document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+                  document
+                    .querySelector("#contact")
+                    ?.scrollIntoView({ behavior: "smooth" });
                 }}
               />
-
-              {/* Floating skill pills around the card */}
-              {[
-                { label: "React", angle: 0, r: 235 },
-                { label: "Next.js", angle: 72, r: 235 },
-                { label: "Python", angle: 144, r: 235 },
-                { label: "TypeScript", angle: 216, r: 235 },
-                { label: "Docker", angle: 288, r: 235 },
-              ].map(({ label, angle, r }) => {
-                const rad = (angle * Math.PI) / 180;
-                const x = Math.round(r * Math.cos(rad));
-                const y = Math.round(r * Math.sin(rad));
-                return (
-                  <motion.div
-                    key={label}
-                    className="absolute text-xs font-semibold px-3 py-1.5 rounded-full border border-[var(--glass-border)] bg-[var(--glass)] text-[var(--text-secondary)] backdrop-blur-sm whitespace-nowrap pointer-events-none"
-                    style={{
-                      left: "50%",
-                      top: "50%",
-                      transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
-                    }}
-                    animate={{ y: [0, -6, 0] }}
-                    transition={{
-                      duration: 3 + angle * 0.01,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: angle * 0.005,
-                    }}
-                  >
-                    {label}
-                  </motion.div>
-                );
-              })}
             </div>
           </motion.div>
         </div>
