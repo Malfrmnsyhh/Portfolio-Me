@@ -3,15 +3,36 @@ import { Code2, Globe, Mail, AtSign } from "lucide-react";
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
+  { label: "Certificates", href: "#certificates" },
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];
 
 const socials = [
-  { id: "footer-github", label: "GitHub", icon: Code2, href: "https://github.com/malfrmnsyah" },
-  { id: "footer-linkedin", label: "LinkedIn", icon: Globe, href: "https://linkedin.com/in/malfrmnsyah" },
-  { id: "footer-email", label: "Email", icon: Mail, href: "mailto:akmal@example.com" },
-  { id: "footer-instagram", label: "Instagram", icon: AtSign, href: "https://instagram.com/malfrmnsyah" },
+  {
+    id: "footer-github",
+    label: "GitHub",
+    icon: Code2,
+    href: "https://github.com/Malfrmnsyhh",
+  },
+  {
+    id: "footer-linkedin",
+    label: "LinkedIn",
+    icon: Globe,
+    href: "https://www.linkedin.com/in/akmal-firmansyah-912b34329",
+  },
+  {
+    id: "footer-email",
+    label: "Email",
+    icon: Mail,
+    href: "akmalhard21@gmail.com",
+  },
+  {
+    id: "footer-instagram",
+    label: "Instagram",
+    icon: AtSign,
+    href: "https://instagram.com/malfrmnsyy",
+  },
 ];
 
 export function Footer() {
@@ -21,10 +42,6 @@ export function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           {/* Left: Logo + copyright */}
           <div className="flex flex-col sm:flex-row items-center gap-4">
-            <span className="font-heading font-bold text-sm text-[var(--text-primary)]">
-              <span className="text-[var(--accent)]">M</span>AF
-            </span>
-            <span className="hidden sm:block h-4 w-px bg-[var(--border)]" />
             <p className="text-xs text-[var(--text-muted)]">
               © {new Date().getFullYear()} Muhammad Akmal Firmansyah
             </p>
