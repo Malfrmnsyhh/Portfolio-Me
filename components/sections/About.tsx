@@ -49,7 +49,7 @@ const fadeUp = {
 
 export function About() {
   return (
-    <section id="about" className="py-24 lg:py-32">
+    <section id="about" className="py-24 lg:py-4">
       <div className="mx-auto max-w-[1200px] px-6 md:px-8">
         <div className="max-w-3xl mx-auto flex flex-col items-center text-center gap-10">
           <div className="flex flex-col items-center gap-4">
