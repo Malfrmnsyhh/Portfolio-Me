@@ -56,13 +56,13 @@ export function Hero() {
       <div className="relative mx-auto max-w-[1200px] w-full px-6 md:px-8 pt-28 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Text */}
-          <div className="flex flex-col gap-6 order-2 lg:order-1">
+          <div className="flex flex-col gap-6 order-2 lg:order-1 items-center text-center lg:items-start lg:text-left">
             {/* Available badge */}
             <motion.div
               {...fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <Badge variant="accent" className="w-fit">
+              <Badge variant="accent" className="w-fit mx-auto lg:mx-0">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent)] opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent)]" />
@@ -75,8 +75,9 @@ export function Hero() {
             <motion.div
               {...fadeUp}
               transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+              className="w-full flex justify-center lg:justify-start"
             >
-              <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold leading-[1.15] tracking-tight cursor-default min-h-[90px] sm:min-h-[110px] md:min-h-[140px] lg:min-h-[90px] xl:min-h-[110px] 2xl:min-h-[140px] flex items-center">
+              <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold leading-[1.15] tracking-tight cursor-default min-h-[90px] sm:min-h-[110px] md:min-h-[140px] lg:min-h-[90px] xl:min-h-[110px] 2xl:min-h-[140px] flex items-center justify-center lg:justify-start text-center lg:text-left w-full">
                 <span
                   className="pb-1 pr-1"
                   style={{
@@ -106,7 +107,7 @@ export function Hero() {
 
             {/* Description */}
             <motion.p
-              className="text-base leading-relaxed text-[var(--text-secondary)] max-w-md cursor-default"
+              className="text-base leading-relaxed text-[var(--text-secondary)] max-w-md cursor-default mx-auto lg:mx-0"
               {...fadeUp}
               transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
             >
@@ -118,7 +119,7 @@ export function Hero() {
 
             {/* CTAs */}
             <motion.div
-              className="flex flex-wrap gap-3 pt-2"
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2 w-full"
               {...fadeUp}
               transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
             >
@@ -159,7 +160,7 @@ export function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
           >
-            <div className="relative flex items-center justify-center lg:justify-end w-full max-w-[360px] h-[500px]">
+            <div className="relative flex items-center justify-center lg:justify-end w-full max-w-[320px] sm:max-w-[360px] h-[420px] sm:h-[500px] mx-auto lg:mx-0 lg:ml-auto">
               <ProfileCard
                 name=""
                 title=""

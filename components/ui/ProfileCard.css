@@ -64,6 +64,7 @@
   max-height: 480px;
   display: grid;
   aspect-ratio: 0.73;
+  margin: 0 auto;
   border-radius: var(--card-radius);
   position: relative;
   background-blend-mode: color-dodge, normal, normal, normal;
@@ -428,17 +429,22 @@
 }
 
 @media (max-width: 768px) {
+  .pc-card-wrapper {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
   .pc-card {
     height: 60svh;
-    max-height: 400px;
+    max-height: 420px;
   }
 
   .pc-details h3 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 
   .pc-details p {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .pc-user-info {
@@ -446,8 +452,33 @@
     padding: 8px 10px;
   }
 
+  .pc-user-text {
+    min-width: 0; 
+  }
+
+  .pc-handle {
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 130px;
+  }
+
+  .pc-status {
+    font-size: 9px;
+    line-height: 1.2;
+    white-space: normal;
+    max-width: 140px;
+  }
+
   .pc-mini-avatar {
     width: 32px;
     height: 32px;
+  }
+
+  .pc-contact-btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    flex-shrink: 0;
   }
 }
