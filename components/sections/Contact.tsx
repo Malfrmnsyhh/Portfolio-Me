@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Code2, Globe, Mail, AtSign } from "lucide-react";
+import { ContactForm } from "@/components/ui/ContactForm";
 
 const socials = [
   {
@@ -72,7 +73,7 @@ export function Contact() {
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           Have a project in mind? I&apos;d love to hear about it. Reach out
-          through any of the channels below.
+          through any of the channels below or fill out the form.
         </motion.p>
 
         {/* Social icons */}
@@ -103,11 +104,19 @@ export function Contact() {
           ))}
         </motion.div>
 
+        {/* Contact Form */}
+        <motion.div
+          {...fadeUp}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <ContactForm />
+        </motion.div>
+
         {/* Divider decoration */}
         <motion.div
           className="mt-16 flex items-center justify-center gap-4 text-[var(--text-muted)]"
           {...fadeUp}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
         >
           <div className="h-px w-24 bg-[var(--border)]" />
           <span className="text-xs font-medium tracking-widest uppercase">

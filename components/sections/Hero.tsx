@@ -56,7 +56,7 @@ export function Hero() {
       <div className="relative mx-auto max-w-[1200px] w-full px-6 md:px-8 pt-28 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Text */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 order-2 lg:order-1">
             {/* Available badge */}
             <motion.div
               {...fadeUp}
@@ -154,12 +154,12 @@ export function Hero() {
 
           {/* Right: Profile Card Visual */}
           <motion.div
-            className="hidden lg:flex items-center justify-end"
+            className="flex items-center justify-center lg:justify-end order-1 lg:order-2 w-full"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
           >
-            <div className="relative flex items-center justify-end w-[360px] h-[500px]">
+            <div className="relative flex items-center justify-center lg:justify-end w-full max-w-[360px] h-[500px]">
               <ProfileCard
                 name=""
                 title=""
