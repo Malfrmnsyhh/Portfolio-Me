@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Home, User, Code2, Cpu, Mail } from "lucide-react";
+import { Home, User, Code2, Cpu, Mail, Award } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { cn } from "@/lib/utils";
@@ -11,6 +11,7 @@ import PillNav from "@/components/PillNav";
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
+  { label: "Certificates", href: "#certificates" },
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];
@@ -19,11 +20,12 @@ const mobileLinks = [
   { label: "Home", href: "#hero", icon: Home },
   { label: "About", href: "#about", icon: User },
   { label: "Projects", href: "#projects", icon: Code2 },
+  { label: "Certifs", href: "#certificates", icon: Award },
   { label: "Skills", href: "#skills", icon: Cpu },
   { label: "Contact", href: "#contact", icon: Mail },
 ];
 
-const sectionIds = ["hero", "about", "projects", "skills", "contact"];
+const sectionIds = ["hero", "about", "projects", "certificates", "skills", "contact"];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
