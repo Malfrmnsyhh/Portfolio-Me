@@ -8,12 +8,20 @@ import { contactSchema } from "@/lib/validations/contact";
 const rateLimit = new Map<string, number>();
 const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
 
-// Initialize Resend
-// It's safe to instantiate it here. If RESEND_API_KEY is not set, we'll handle the error.
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
   try {
+    // Initialize Resend dynamically so it doesn't crash at build time
+    // if the environment variable is missing.
+    const resendApiKey = process.env.RESEND_API_KEY;
+    if (!resendApiKey) {
+      console.error("RESEND_API_KEY is not set in environment variables.");
+      return NextResponse.json(
+        { success: false, message: "Server configuration error (API Key missing)." },
+        { status: 500 }
+      );
+    }
+    const resend = new Resend(resendApiKey);
+
     // Basic IP-based rate limiting
     // Note: get('x-forwarded-for') is a common way to get IP in Vercel/Next.js
     const ip = request.headers.get("x-forwarded-for") || "unknown-ip";
