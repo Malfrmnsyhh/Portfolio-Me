@@ -76,7 +76,7 @@ export function Hero() {
               {...fadeUp}
               transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             >
-              <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-extrabold leading-[1.15] tracking-tight cursor-default min-h-[130px] sm:min-h-[150px] flex items-center">
+              <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold leading-[1.15] tracking-tight cursor-default min-h-[90px] sm:min-h-[110px] md:min-h-[140px] lg:min-h-[90px] xl:min-h-[110px] 2xl:min-h-[140px] flex items-center">
                 <span
                   className="pb-1 pr-1"
                   style={{

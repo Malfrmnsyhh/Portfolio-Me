@@ -85,7 +85,7 @@ export function TextType({
       {currentText}
       {showCursor && (
         <span
-          className="inline-block animate-pulse ml-0.5"
+          className="inline animate-pulse ml-0.5"
           style={{
             animationDuration: `${cursorBlinkDuration}s`,
             opacity: 0.9,
