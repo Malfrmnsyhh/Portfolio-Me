@@ -17,7 +17,7 @@ export function ProjectsClient() {
   });
 
   return (
-    <div className="min-h-screen pt-24 pb-20 px-6 md:px-8">
+    <div className="min-h-screen pt-12 pb-20 px-6 md:px-8">
       <div className="mx-auto max-w-[1200px]">
         {/* Header */}
         <div className="mb-12">
@@ -25,22 +25,33 @@ export function ProjectsClient() {
             href="/"
             className="inline-flex items-center gap-2 text-sm font-medium text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors mb-6 group"
           >
-            <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
+            <ArrowLeft
+              size={16}
+              className="transition-transform group-hover:-translate-x-1"
+            />
             Back to Home
           </Link>
           <h1 className="font-heading text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">
             All Projects
           </h1>
           <p className="text-lg text-[var(--text-secondary)] max-w-2xl">
-            Kumpulan proyek yang pernah saya bangun. Mulai dari platform web berskala penuh, aplikasi mobile, model machine learning, hingga eksplorasi desain UI/UX.
+            Kumpulan proyek yang pernah saya bangun. Mulai dari platform web
+            berskala penuh, aplikasi mobile, model machine learning, hingga
+            eksplorasi desain UI/UX.
           </p>
         </div>
 
         {/* Filters */}
-        <CategoryFilter activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
+        <CategoryFilter
+          activeCategory={activeCategory}
+          setActiveCategory={setActiveCategory}
+        />
 
         {/* Grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, idx) => (
               <motion.div

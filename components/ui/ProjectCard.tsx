@@ -5,7 +5,11 @@ import { Project } from "@/data/projects";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" as const } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: "easeOut" as const },
+  },
 };
 
 interface ProjectCardProps {
@@ -45,7 +49,9 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
         ) : (
           <div
             className="absolute inset-0 flex items-center justify-center transition-transform duration-500 group-hover:scale-105"
-            style={{ background: `linear-gradient(135deg, ${bg} 0%, ${bg}CC 100%)` }}
+            style={{
+              background: `linear-gradient(135deg, ${bg} 0%, ${bg}CC 100%)`,
+            }}
           >
             <div
               className="absolute inset-0 opacity-10"
@@ -56,7 +62,11 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
             />
             <div
               className="relative z-10 h-14 w-14 rounded-2xl flex items-center justify-center text-xl font-extrabold font-heading"
-              style={{ background: `${accent}22`, border: `1px solid ${accent}44`, color: accent }}
+              style={{
+                background: `${accent}22`,
+                border: `1px solid ${accent}44`,
+                color: accent,
+              }}
             >
               {project.name.charAt(0)}
             </div>
@@ -92,7 +102,7 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
         </div>
 
         {/* Tech stack */}
-        <div className="flex flex-wrap gap-2 mt-auto">
+        <div className="flex flex-wrap gap-2 mt-auto cursor-default">
           {visibleTech.map((t) => (
             <span
               key={t}
@@ -127,7 +137,7 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
               className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
             >
               <ArrowUpRight size={14} />
-              Live Demo
+              View Project
             </a>
           )}
         </div>
