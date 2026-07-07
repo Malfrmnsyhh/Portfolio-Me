@@ -59,7 +59,7 @@ const socials = [
     id: "footer-cv",
     label: "Download CV",
     icon: Download,
-    href: "/cv.pdf",
+    href: "/certificates/cv/cv-Muhammad-Akmal-F.pdf",
     download: true,
   },
 ];
