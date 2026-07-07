@@ -116,7 +116,7 @@ export function ContactForm() {
                 <input
                   id="nickname"
                   type="text"
-                  placeholder="Nama Panggilan"
+                  placeholder="What should I call you?"
                   {...register("nickname")}
                   className={`w-full bg-[var(--background)] border ${
                     errors.nickname

@@ -3,7 +3,7 @@ import { ProjectsClient } from "./ProjectsClient";
 
 export const metadata: Metadata = {
   title: "Projects | Muhammad Akmal Firmansyah",
-  description: "Kumpulan proyek yang pernah saya bangun mulai dari Web Development, Machine Learning, Desktop, hingga UI/UX Design.",
+  description: "A collection of projects. Built by Muhammad Akmal Firmansyah",
 };
 
 export default function ProjectsPage() {

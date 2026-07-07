@@ -35,9 +35,7 @@ export function ProjectsClient() {
             All Projects
           </h1>
           <p className="text-lg text-[var(--text-secondary)] max-w-2xl">
-            Kumpulan proyek yang pernah saya bangun. Mulai dari platform web
-            berskala penuh, aplikasi mobile, model machine learning, hingga
-            eksplorasi desain UI/UX.
+            A collection of projects that I have created
           </p>
         </div>
 

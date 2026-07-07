@@ -1,33 +1,35 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Code2, Globe, Mail, AtSign } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Mail, MessageSquare, X } from "lucide-react";
+import { Icon } from "@iconify/react";
 import { ContactForm } from "@/components/ui/ContactForm";
 
 const socials = [
   {
     id: "contact-github",
     label: "GitHub",
-    icon: Code2,
-    href: "https://github.com/malfrmnsyah",
+    icon: (props: any) => <Icon icon="simple-icons:github" width={props.size} height={props.size} className={props.className} />,
+    href: "https://github.com/Malfrmnsyhh",
   },
   {
     id: "contact-linkedin",
     label: "LinkedIn",
-    icon: Globe,
-    href: "https://linkedin.com/in/malfrmnsyah",
+    icon: (props: any) => <Icon icon="simple-icons:linkedin" width={props.size} height={props.size} className={props.className} />,
+    href: "https://www.linkedin.com/in/akmal-firmansyah-912b34329",
   },
   {
     id: "contact-email",
     label: "Email",
     icon: Mail,
-    href: "mailto:akmal@example.com",
+    href: "mailto:akmalhard21@gmail.com",
   },
   {
     id: "contact-instagram",
     label: "Instagram",
-    icon: AtSign,
-    href: "https://instagram.com/malfrmnsyah",
+    icon: (props: any) => <Icon icon="simple-icons:instagram" width={props.size} height={props.size} className={props.className} />,
+    href: "https://instagram.com/malfrmnsyy",
   },
 ];
 
@@ -38,6 +40,8 @@ const fadeUp = {
 };
 
 export function Contact() {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
   return (
     <section id="contact" className="py-24 lg:py-32 relative overflow-hidden">
       {/* Background accent glow */}
@@ -63,8 +67,7 @@ export function Contact() {
           {...fadeUp}
           transition={{ duration: 0.5, delay: 0.05 }}
         >
-          Let&apos;s Work{" "}
-          <span className="text-[var(--accent)]">Together</span>
+          Let&apos;s Work <span className="text-[var(--accent)]">Together</span>
         </motion.h2>
 
         <motion.p
@@ -104,13 +107,59 @@ export function Contact() {
           ))}
         </motion.div>
 
-        {/* Contact Form */}
+        {/* Toggle Form Button */}
         <motion.div
+          className="mt-8 flex justify-center"
           {...fadeUp}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <ContactForm />
+          <button
+            onClick={() => setIsFormOpen(!isFormOpen)}
+            className={`flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 ${
+              isFormOpen
+                ? "bg-transparent border border-[var(--border)] text-[var(--text-secondary)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                : "bg-[var(--accent)] text-white border border-transparent hover:opacity-90"
+            }`}
+          >
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={isFormOpen ? "cancel" : "send"}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ duration: 0.2 }}
+                className="flex items-center gap-2"
+              >
+                {isFormOpen ? (
+                  <>
+                    <X size={18} /> Cancel
+                  </>
+                ) : (
+                  <>
+                    <MessageSquare size={18} /> Send a Message
+                  </>
+                )}
+              </motion.span>
+            </AnimatePresence>
+          </button>
         </motion.div>
+
+        {/* Contact Form */}
+        <AnimatePresence>
+          {isFormOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="overflow-hidden"
+            >
+              <div className="pt-2 pb-2">
+                <ContactForm />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Divider decoration */}
         <motion.div

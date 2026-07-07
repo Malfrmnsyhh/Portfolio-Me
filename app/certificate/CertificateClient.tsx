@@ -34,7 +34,9 @@ export default function CertificateClient() {
             My <span className="text-[var(--accent)]">Certificates</span>
           </h1>
           <p className="text-lg text-[var(--text-secondary)] max-w-2xl">
-            A collection of certifications and courses I have completed to expand my knowledge and skills in software development.
+            A collection of certifications, courses, and organizational
+            experiences that reflect my continuous growth spanning technical
+            skills, design, and leadership.
           </p>
         </div>
 

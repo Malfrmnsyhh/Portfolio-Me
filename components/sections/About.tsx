@@ -90,7 +90,7 @@ export function About() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <p>
-              I&apos;m a Computer Science student who learns best by building —
+              I&apos;m a Computer Science student who learns best by building
               most of what I know in web development came from shipping real
               projects rather than just following a curriculum. I work across
               the full stack, from{" "}
@@ -109,8 +109,9 @@ export function About() {
               What pulled me into software in the first place was practical, not
               theoretical: helping digitalize my family's traditional herbal
               medicine (jamu) business. That experience still shapes how I build
-              — I care less about using the &quot;trendiest&quot; tech, and more
-              about whether the software actually solves someone's real problem.
+              and I care less about using the &quot;trendiest&quot; tech, and
+              more about whether the software actually solves someone's real
+              problem.
             </p>
           </motion.div>
 
