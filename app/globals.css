@@ -4,11 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* ============================================================
-   DESIGN SYSTEM — Muhammad Akmal Firmansyah Portfolio
-   ============================================================ */
-
-/* ---------- Light Theme / Default ---------- */
+/* Light Theme / Default */
 :root, .light {
   --background:       #F4F9F9;
   --surface:          #E5F2F2;
@@ -45,7 +41,7 @@
   --radius:              0.625rem;
 }
 
-/* ---------- Dark Theme ---------- */
+/* Dark Theme  */
 .dark {
   --background:       #002029;
   --surface:          #00303D;
@@ -81,7 +77,7 @@
   --ring:                #00A3AD;
 }
 
-/* ---------- Tailwind v4 Theme Tokens ---------- */
+/* Tailwind v4 Theme Tokens */
 @theme inline {
   --color-background:    var(--background);
   --color-surface:       var(--surface);
@@ -105,7 +101,7 @@
   --radius-4xl:          calc(var(--radius) * 2.6);
 }
 
-/* ---------- Base ---------- */
+/* Base  */
 *,
 *::before,
 *::after {
@@ -127,7 +123,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ---------- Custom Scrollbar ---------- */
+/* Custom Scrollbar  */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -142,20 +138,20 @@ body {
   background: var(--accent);
 }
 
-/* ---------- Selection ---------- */
+/* Selection */
 ::selection {
   background: var(--accent-subtle);
   color: var(--accent);
 }
 
-/* ---------- Focus visible ---------- */
+/* Focus visible */
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
   border-radius: 4px;
 }
 
-/* ---------- Heading font override ---------- */
+/* Heading font override */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-plus-jakarta-sans), system-ui, sans-serif;
   color: var(--text-primary);
@@ -163,7 +159,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.15;
 }
 
-/* ---------- Transition all theme-aware colors ---------- */
+/* Transition all theme-aware colors */
 a, button, input, textarea {
   transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
