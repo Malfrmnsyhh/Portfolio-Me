@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Code2, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { Project } from "@/data/projects";
+import { Icon } from "@iconify/react";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 24 },
@@ -126,7 +127,7 @@ export function ProjectCard({ project, idx = 0 }: ProjectCardProps) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
           >
-            <Code2 size={14} />
+            <Icon icon="simple-icons:github" width="14" height="14" />
             GitHub
           </a>
           {project.liveUrl && (

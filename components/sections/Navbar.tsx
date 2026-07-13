@@ -25,7 +25,14 @@ const mobileLinks = [
   { label: "Contact", href: "#contact", icon: Mail },
 ];
 
-const sectionIds = ["hero", "about", "projects", "certificates", "skills", "contact"];
+const sectionIds = [
+  "hero",
+  "about",
+  "projects",
+  "certificates",
+  "skills",
+  "contact",
+];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -56,7 +63,7 @@ export function Navbar() {
           "fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] rounded-full transition-all duration-300 ease-out border flex items-center justify-between",
           scrolled
             ? "max-w-4xl bg-[var(--surface)]/75 backdrop-blur-md border-[var(--border)] shadow-lg shadow-black/5 py-2 px-6"
-            : "max-w-5xl bg-transparent border-transparent py-4 px-6"
+            : "max-w-5xl bg-transparent border-transparent py-4 px-6",
         )}
       >
         {/* Logo */}
@@ -70,7 +77,7 @@ export function Navbar() {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          <span className="text-[var(--accent)]">P</span>ortfolio
+          <span className="text-[var(--accent)]">Port</span>folio
         </motion.a>
 
         {/* Desktop Nav Links with React Bits PillNav */}
@@ -115,13 +122,17 @@ export function Navbar() {
                 size={20}
                 className={cn(
                   "transition-colors duration-200",
-                  isActive ? "text-[var(--accent)]" : "text-[var(--text-secondary)]"
+                  isActive
+                    ? "text-[var(--accent)]"
+                    : "text-[var(--text-secondary)]",
                 )}
               />
               <span
                 className={cn(
                   "text-[10px] font-semibold transition-colors duration-200",
-                  isActive ? "text-[var(--accent)]" : "text-[var(--text-muted)]"
+                  isActive
+                    ? "text-[var(--accent)]"
+                    : "text-[var(--text-muted)]",
                 )}
               >
                 {link.label}

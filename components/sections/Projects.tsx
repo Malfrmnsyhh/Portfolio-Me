@@ -5,6 +5,7 @@ import { Code2, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { projects } from "@/data/projects";
 import { ProjectCard } from "@/components/ui/ProjectCard";
+import { Icon } from "@iconify/react";
 
 const containerVariants = {
   hidden: {},
@@ -52,12 +53,12 @@ export function Projects() {
           </h2>
           <div className="flex items-center gap-4 shrink-0">
             <a
-              href="https://github.com/malfrmnsyah"
+              href="https://github.com/Malfrmnsyhh"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-medium text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors flex items-center gap-1.5"
             >
-              <Code2 size={16} />
+              <Icon icon="mdi:github" width="16" height="16" />
               See all on GitHub
             </a>
             <div className="w-px h-4 bg-[var(--border)] hidden sm:block" />

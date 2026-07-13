@@ -16,7 +16,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Muhammad Akmal Firmansyah — Full Stack Developer",
+  title: "Portfolio Akmal",
   description:
     "Personal portfolio of Muhammad Akmal Firmansyah. Computer Science student, Full Stack Web Developer, and Machine Learning Enthusiast building modern web applications.",
   keywords: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Muhammad Akmal Firmansyah" }],
   openGraph: {
-    title: "Muhammad Akmal Firmansyah — Full Stack Developer",
+    title: "Portfolio Akmal",
     description:
       "Computer Science student and Full Stack Web Developer building modern web applications.",
     type: "website",
