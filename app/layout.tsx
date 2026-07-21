@@ -29,6 +29,14 @@ export const metadata: Metadata = {
     "Indonesia",
   ],
   authors: [{ name: "Muhammad Akmal Firmansyah" }],
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    shortcut: "/icon.png",
+    apple: "/apple-icon.png",
+  },
   openGraph: {
     title: "Portfolio Akmal",
     description:
