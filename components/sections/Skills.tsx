@@ -5,6 +5,7 @@ import { Icon } from "@iconify/react";
 import { Plug } from "lucide-react";
 import { skills } from "@/data/skills";
 import LogoLoop, { LogoItem } from "@/components/ui/LogoLoop";
+import BorderGlow from "@/components/ui/BorderGlow";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -37,13 +38,28 @@ export function Skills() {
   return (
     <section id="skills" className="py-24 lg:py-32 overflow-hidden">
       <div className="mx-auto max-w-[1200px] px-6 md:px-8 mb-12 flex flex-col items-center text-center">
-        <motion.p
-          className="text-sm font-semibold tracking-widest text-[var(--accent)] uppercase mb-3"
+        <motion.div
+          className="mb-3"
           {...fadeUp}
           transition={{ duration: 0.4 }}
         >
-          Skills
-        </motion.p>
+          <BorderGlow
+            animated={true}
+            edgeSensitivity={30}
+            glowColor="180 80 80"
+            backgroundColor="var(--surface)"
+            borderRadius={9999}
+            glowRadius={30}
+            glowIntensity={1.2}
+            coneSpread={30}
+            colors={["#00a3ad", "#38bdf8", "#c084fc"]}
+            className="px-4 py-1.5 border border-[var(--border)] shadow-sm cursor-default"
+          >
+            <span className="text-sm font-semibold tracking-widest text-[var(--accent)] uppercase">
+              Skills
+            </span>
+          </BorderGlow>
+        </motion.div>
 
         <motion.h2
           className="font-heading text-3xl lg:text-4xl font-bold text-[var(--text-primary)] leading-tight max-w-md"

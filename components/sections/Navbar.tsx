@@ -62,8 +62,8 @@ export function Navbar() {
         className={cn(
           "fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] rounded-full transition-all duration-300 ease-out border flex items-center justify-between",
           scrolled
-            ? "max-w-4xl bg-[var(--surface)]/75 backdrop-blur-md border-[var(--border)] shadow-lg shadow-black/5 py-2 px-6"
-            : "max-w-5xl bg-transparent border-transparent py-4 px-6",
+            ? "max-w-5xl bg-[var(--surface)]/15 backdrop-blur-md border-[var(--border)] shadow-lg shadow-black/5 py-2 px-6"
+            : "max-w-6xl bg-transparent border-transparent py-4 px-6",
         )}
       >
         {/* Logo */}
@@ -80,7 +80,6 @@ export function Navbar() {
           <span className="text-[var(--accent)]">Port</span>folio
         </motion.a>
 
-        {/* Desktop Nav Links with React Bits PillNav */}
         <nav className="hidden lg:block">
           <PillNav
             items={navLinks}
@@ -102,7 +101,7 @@ export function Navbar() {
       </header>
 
       {/* Sticky Bottom Navigation for Mobile */}
-      <nav className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-md rounded-full border border-[var(--border)] bg-[var(--surface)]/80 backdrop-blur-lg px-4 py-2 flex items-center justify-around shadow-lg shadow-black/10 lg:hidden">
+      <nav className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-md rounded-full border border-[var(--border)] bg-[var(--surface)]/25 backdrop-blur-md px-4 py-2 flex items-center justify-around shadow-lg shadow-black/10 lg:hidden">
         {mobileLinks.map((link) => {
           const isActive =
             activeSection === link.href.replace("#", "") ||

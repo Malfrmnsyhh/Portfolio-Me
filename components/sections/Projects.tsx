@@ -1,11 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { projects } from "@/data/projects";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { Icon } from "@iconify/react";
+import BorderGlow from "@/components/ui/BorderGlow";
 
 const containerVariants = {
   hidden: {},
@@ -35,13 +36,28 @@ export function Projects() {
       />
 
       <div className="mx-auto max-w-[1200px] px-6 md:px-8">
-        <motion.p
-          className="text-sm font-semibold tracking-widest text-[var(--accent)] uppercase mb-3"
+        <motion.div
+          className="mb-3 w-fit"
           {...fadeUp}
           transition={{ duration: 0.4 }}
         >
-          Projects
-        </motion.p>
+          <BorderGlow
+            animated={true}
+            edgeSensitivity={30}
+            glowColor="180 80 80"
+            backgroundColor="var(--surface)"
+            borderRadius={9999}
+            glowRadius={30}
+            glowIntensity={1.2}
+            coneSpread={30}
+            colors={["#00a3ad", "#38bdf8", "#c084fc"]}
+            className="px-4 py-1.5 border border-[var(--border)] shadow-sm cursor-default"
+          >
+            <span className="text-sm font-semibold tracking-widest text-[var(--accent)] uppercase">
+              Projects
+            </span>
+          </BorderGlow>
+        </motion.div>
 
         <motion.div
           className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12"

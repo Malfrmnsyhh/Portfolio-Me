@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import SplitText from "@/components/ui/SplitText";
+import BorderGlow from "@/components/ui/BorderGlow";
 
 const stats = [
   { label: "Projects Built", value: 12, suffix: "+" },
@@ -53,15 +54,27 @@ export function About() {
       <div className="mx-auto max-w-[1200px] px-6 md:px-8">
         <div className="max-w-3xl mx-auto flex flex-col items-center text-center gap-10">
           <div className="flex flex-col items-center gap-4">
-            {/* Section label */}
+            {/* Section label with BorderGlow spotlight effect */}
             <motion.div
-              className="inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-1.5"
               {...fadeUp}
               transition={{ duration: 0.4 }}
             >
-              <span className="text-sm font-semibold tracking-widest text-[var(--accent)] uppercase">
-                About Me
-              </span>
+              <BorderGlow
+                animated={true}
+                edgeSensitivity={30}
+                glowColor="180 80 80"
+                backgroundColor="var(--surface)"
+                borderRadius={9999}
+                glowRadius={30}
+                glowIntensity={1.2}
+                coneSpread={30}
+                colors={["#00a3ad", "#38bdf8", "#c084fc"]}
+                className="px-4 py-1.5 border border-[var(--border)] shadow-sm cursor-default"
+              >
+                <span className="text-sm font-semibold tracking-widest text-[var(--accent)] uppercase">
+                  About Me
+                </span>
+              </BorderGlow>
             </motion.div>
 
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold leading-tight flex flex-wrap justify-center gap-x-2 gap-y-1">
@@ -101,16 +114,16 @@ export function About() {
               <strong className="text-[var(--text-primary)] font-semibold">
                 Laravel
               </strong>{" "}
-              and PHP-based backends, and I've also explored machine learning by
+              and PHP-based backends, and I&apos;ve also explored machine learning by
               building a backpropagation neural network with scikit-learn to
               predict rice price fluctuations in East Java.
             </p>
             <p>
               What pulled me into software in the first place was practical, not
-              theoretical: helping digitalize my family's traditional herbal
+              theoretical: helping digitalize my family&apos;s traditional herbal
               medicine (jamu) business. That experience still shapes how I build
               and I care less about using the &quot;trendiest&quot; tech, and
-              more about whether the software actually solves someone's real
+              more about whether the software actually solves someone&apos;s real
               problem.
             </p>
           </motion.div>
