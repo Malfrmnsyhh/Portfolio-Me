@@ -6,6 +6,7 @@ import { Home, User, Code2, Cpu, Mail, Award } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { cn } from "@/lib/utils";
+import { smoothScrollTo } from "@/lib/smoothScroll";
 import PillNav from "@/components/PillNav";
 
 const navLinks = [
@@ -48,11 +49,7 @@ export function Navbar() {
   }, []);
 
   const handleNavClick = (href: string) => {
-    const targetId = href.replace("#", "");
-    const el = document.getElementById(targetId);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+    smoothScrollTo(href);
   };
 
   return (
@@ -74,7 +71,7 @@ export function Navbar() {
           whileTap={{ scale: 0.95 }}
           onClick={(e) => {
             e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
+            smoothScrollTo(0, 0);
           }}
         >
           <span className="text-[var(--accent)]">Port</span>folio

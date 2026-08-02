@@ -37,14 +37,8 @@ interface ProfileCardProps {
   enableTilt?: boolean;
   enableMobileTilt?: boolean;
   mobileTiltSensitivity?: number;
-  miniAvatarUrl?: string;
   name?: string;
   title?: string;
-  handle?: string;
-  status?: string;
-  contactText?: string;
-  showUserInfo?: boolean;
-  onContactClick?: () => void;
 }
 
 interface TiltEngine {
@@ -68,14 +62,8 @@ const ProfileCardComponent = ({
   enableTilt = true,
   enableMobileTilt = false,
   mobileTiltSensitivity = 5,
-  miniAvatarUrl,
   name = "Muhammad Akmal Firmansyah",
   title = "Full Stack Web Developer",
-  handle = "Malfrmnsyahh",
-  status = "Available",
-  contactText = "Contact Me",
-  showUserInfo = true,
-  onContactClick,
 }: ProfileCardProps) => {
   const wrapRef = useRef<HTMLDivElement>(null);
   const shellRef = useRef<HTMLDivElement>(null);
@@ -360,10 +348,6 @@ const ProfileCardComponent = ({
     [iconUrl, grainUrl, innerGradient, behindGlowColor, behindGlowSize],
   );
 
-  const handleContactClick = useCallback(() => {
-    onContactClick?.();
-  }, [onContactClick]);
-
   return (
     <div
       ref={wrapRef}
@@ -388,45 +372,15 @@ const ProfileCardComponent = ({
                   t.style.display = "none";
                 }}
               />
-              {showUserInfo && (
-                <div className="pc-user-info">
-                  <div className="pc-user-details">
-                    <div className="pc-mini-avatar">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={miniAvatarUrl || avatarUrl}
-                        alt={`${name || "User"} mini avatar`}
-                        loading="lazy"
-                        onError={(e) => {
-                          const t = e.target as HTMLImageElement;
-                          t.style.opacity = "0.5";
-                          t.src = avatarUrl;
-                        }}
-                      />
-                    </div>
-                    <div className="pc-user-text">
-                      <div className="pc-handle">@{handle}</div>
-                      <div className="pc-status">{status}</div>
-                    </div>
-                  </div>
-                  <button
-                    className="pc-contact-btn"
-                    onClick={handleContactClick}
-                    style={{ pointerEvents: "auto" }}
-                    type="button"
-                    aria-label={`Contact ${name || "user"}`}
-                  >
-                    {contactText}
-                  </button>
+            </div>
+            {(name || title) && (
+              <div className="pc-content">
+                <div className="pc-details">
+                  {name && <h3>{name}</h3>}
+                  {title && <p>{title}</p>}
                 </div>
-              )}
-            </div>
-            <div className="pc-content">
-              <div className="pc-details">
-                <h3>{name}</h3>
-                <p>{title}</p>
               </div>
-            </div>
+            )}
           </div>
         </section>
       </div>

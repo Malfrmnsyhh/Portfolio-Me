@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/Badge";
 import { DotGrid } from "@/components/ui/DotGrid";
 import ProfileCard from "@/components/ui/ProfileCard";
 import TextType from "@/components/ui/TextType";
+import { smoothScrollTo } from "@/lib/smoothScroll";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -126,12 +127,9 @@ export function Hero() {
               <Button
                 variant="primary"
                 size="lg"
-                href="#projects"
                 onClick={(e: React.MouseEvent) => {
                   e.preventDefault();
-                  document
-                    .querySelector("#projects")
-                    ?.scrollIntoView({ behavior: "smooth" });
+                  smoothScrollTo("projects");
                 }}
               >
                 View Projects
@@ -139,12 +137,9 @@ export function Hero() {
               <Button
                 variant="ghost"
                 size="lg"
-                href="#contact"
                 onClick={(e: React.MouseEvent) => {
                   e.preventDefault();
-                  document
-                    .querySelector("#contact")
-                    ?.scrollIntoView({ behavior: "smooth" });
+                  smoothScrollTo("contact");
                 }}
               >
                 <Mail size={16} />
@@ -164,8 +159,6 @@ export function Hero() {
               <ProfileCard
                 name=""
                 title=""
-                handle="Muhammad Akmal"
-                status="Open To Internship & Freelance"
                 avatarUrl="/photo.jpeg"
                 iconUrl="/code-pattern.svg"
                 behindGlowEnabled={true}
@@ -173,11 +166,6 @@ export function Hero() {
                 behindGlowSize="70%"
                 enableTilt={true}
                 innerGradient="linear-gradient(145deg, rgba(0, 163, 173, 0.1) 0%, rgba(0, 32, 41, 0.65) 100%)"
-                onContactClick={() => {
-                  document
-                    .querySelector("#contact")
-                    ?.scrollIntoView({ behavior: "smooth" });
-                }}
               />
             </div>
           </motion.div>

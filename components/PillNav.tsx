@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { gsap } from 'gsap';
+import { smoothScrollTo } from '@/lib/smoothScroll';
 import './PillNav.css';
 
 interface PillNavItem {
@@ -325,8 +326,7 @@ const PillNav = ({
                     onClick={(e) => {
                       if (item.href.startsWith('#')) {
                         e.preventDefault();
-                        const targetId = item.href.replace('#', '');
-                        document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+                        smoothScrollTo(item.href);
                       }
                     }}
                   >
